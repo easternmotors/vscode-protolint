@@ -1,18 +1,15 @@
 {
-  "name": "vscode-protolint",
-  "displayName": "Proto Lint",
+  "name": "vscode-protolint-rcginc",
+  "displayName": "Proto Lint (RCG Inc.)",
   "description": "Lint your protobufs using protolint",
   "license": "MIT",
-  "homepage": "https://github.com/plexsystems/vscode-protolint",
+  "homepage": "https://github.com/easternmotors/vscode-protolint",
   "version": "0.8.0",
-  "publisher": "plex",
+  "publisher": "rcginc",
   "icon": "icon/protolint_logo128.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/plexsystems/vscode-protolint.git"
-  },
-  "bugs": {
-    "url": "https://github.com/plexsystems/vscode-protolint/issues"
+    "url": "https://github.com/easternmotors/vscode-protolint.git"
   },
   "engines": {
     "vscode": "^1.14.0"

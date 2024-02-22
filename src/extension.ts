@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import * as cp from 'child_process';
+import * as path from 'path';
 import Linter, { LinterError } from './linter';
 
 const diagnosticCollection = vscode.languages.createDiagnosticCollection("protolint");
@@ -22,6 +23,8 @@ export function activate(context: vscode.ExtensionContext) {
   let protoLintPath = vscode.workspace.getConfiguration('protolint').get<string>('path');
   if (!protoLintPath) {
     protoLintPath = "protolint"
+  } else {
+    protoLintPath = path.resolve(protoLintPath);
   }
 
   const result = cp.spawnSync(protoLintPath, ['version']);
