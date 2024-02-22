@@ -1,4 +1,4 @@
-# vscode-protolint [![License](https://img.shields.io/:license-mit-blue.svg)](https://github.com/plexsystems/vscode-protolint/blob/master/LICENSE) [![GitHub release](https://img.shields.io/github/release/plexsystems/vscode-protolint.svg)](https://github.com/plexsystems/vscode-protolint/releases)
+# vscode-protolint
 
 vscode-protolint is a protocol buffer linter for [Visual Studio Code](https://code.visualstudio.com/) that uses [protolint](https://github.com/yoheimuta/protolint) to validate linting rules.
 
