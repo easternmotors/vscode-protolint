@@ -1,7 +1,7 @@
 {
   "name": "vscode-protolint-rcginc",
   "displayName": "Proto Lint (RCG Inc.)",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "repository": {
     "url": "https://github.com/easternmotors/vscode-protolint"
   },
@@ -9,9 +9,10 @@
   "publisher": "rcginc",
   "main": "./out/extension",
   "scripts": {
-    "clean": "rimraf out",
+    "build": "yarn compile && yarn package",
     "compile": "tsc",
-    "package": "vsce package --out ./out --yarn",
+    "format": "yarn prettier . --write",
+    "package": "vsce package --no-dependencies --out ./out --yarn",
     "publish": "vsce publish --packagePath ./out/*.vsix --yarn"
   },
   "contributes": {
@@ -19,6 +20,12 @@
       "type": "object",
       "title": "Protolint",
       "properties": {
+        "protolint.configPath": {
+          "scope": "resource",
+          "type": "string",
+          "default": "",
+          "description": "Path to a protolint configuration file relative to the VSCode workspace folder"
+        },
         "protolint.path": {
           "scope": "resource",
           "type": "string",
@@ -36,7 +43,7 @@
     "@types/node": "20.11.20",
     "@types/vscode": "1.86.0",
     "@vscode/vsce": "2.23.0",
-    "rimraf": "5.0.5",
+    "prettier": "3.2.5",
     "sort-package-json": "2.8.0",
     "typescript": "5.3.3"
   },
@@ -46,5 +53,5 @@
     "vscode": "^1.86.0",
     "yarn": "4.1.0"
   },
-  "icon": "src/logo.png"
+  "icon": "out/logo.png"
 }

@@ -6,4 +6,5 @@
 !.yarn/sdks
 !.yarn/versions
 node_modules
-out
+out/*
+!out/logo.png
