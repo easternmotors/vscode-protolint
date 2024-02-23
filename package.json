@@ -1,70 +1,50 @@
 {
   "name": "vscode-protolint-rcginc",
   "displayName": "Proto Lint (RCG Inc.)",
-  "description": "Lint your protobufs using protolint",
-  "license": "MIT",
-  "homepage": "https://github.com/easternmotors/vscode-protolint",
-  "version": "0.8.2",
-  "publisher": "rcginc",
-  "icon": "icon/protolint_logo128.png",
+  "version": "1.0.0",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/easternmotors/vscode-protolint.git"
+    "url": "https://github.com/easternmotors/vscode-protolint"
   },
-  "engines": {
-    "vscode": "^1.14.0"
+  "license": "MIT",
+  "publisher": "rcginc",
+  "main": "./out/extension",
+  "scripts": {
+    "clean": "rimraf out",
+    "compile": "tsc",
+    "package": "vsce package --out ./out --yarn",
+    "publish": "vsce publish --packagePath ./out/*.vsix --yarn"
   },
-  "categories": [
-    "Linters"
-  ],
-  "keywords": [
-    "proto",
-    "protocol buffer",
-    "protobuf",
-    "lint"
-  ],
-  "activationEvents": [
-    "onLanguage:proto3",
-    "onLanguage:proto"
-  ],
-  "main": "./out/src/extension",
   "contributes": {
-    "commands": [
-      {
-        "command": "protolint.lint",
-        "title": "Protolint: Lint protobuf file"
-      }
-    ],
     "configuration": {
       "type": "object",
-      "title": "protolint",
+      "title": "Protolint",
       "properties": {
         "protolint.path": {
-          "type":  "string",
-          "default": "protolint",
-          "description": "Path of the protolint executable."
+          "scope": "resource",
+          "type": "string",
+          "default": "",
+          "description": "Path to a protolint executable file relative to the VSCode workspace folder"
         }
       }
     }
   },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc",
-    "lint": "tslint --project tsconfig.json",
-    "precompile": "rimraf ./out && npm run lint",
-    "watch": "tsc -watch -p ./",
-    "test": "npm run compile && mocha out/test/*.test.js",
-    "deploy": "vsce publish"
-  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "devDependencies": {
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.0.8",
-    "@types/vscode": "^1.14.0",
-    "mocha": "^9.2.2",
-    "rimraf": "^2.6.3",
-    "tslint": "^5.8.0",
-    "typescript": "^3.5.1",
-    "vsce": "^2.7.0",
-    "vscode-test": "^1.3.0"
-  }
+    "@tsconfig/node-lts-strictest": "18.12.1",
+    "@types/node": "20.11.20",
+    "@types/vscode": "1.86.0",
+    "@vscode/vsce": "2.23.0",
+    "rimraf": "5.0.5",
+    "sort-package-json": "2.8.0",
+    "typescript": "5.3.3"
+  },
+  "packageManager": "yarn@4.1.0",
+  "engines": {
+    "node": "20.11.1",
+    "vscode": "^1.86.0",
+    "yarn": "4.1.0"
+  },
+  "icon": "src/logo.png"
 }

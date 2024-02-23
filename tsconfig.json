@@ -1,18 +1,8 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es6",
-    "outDir": "out",
-    "lib": [
-      "es6"
-    ],
-    "sourceMap": true,
-    "rootDir": ".",
-    "noUnusedLocals": true,
-    "strict": true
+    "ignoreDeprecations": "5.0",
+    "outDir": "out"
   },
-  "exclude": [
-    "node_modules",
-    ".vscode-test"
-  ]
+  "extends": "@tsconfig/node-lts-strictest/tsconfig.json",
+  "include": ["./src"]
 }
