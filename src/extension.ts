@@ -6,6 +6,7 @@ let disposable: Disposable | undefined;
 let outputChannel: OutputChannel | undefined;
 
 const activate = () => {
+  // Create a VSCode output channel for better telemetry
   outputChannel = window.createOutputChannel('Protolint', 'proto3');
   outputChannel.appendLine('Activating Protolint extension');
 
@@ -15,10 +16,12 @@ const activate = () => {
     }
   });
 
+  // Run protolint when changing tabs
   window.onDidChangeActiveTextEditor(() => {
     commands.executeCommand('protolint.lint');
   });
 
+  // Run protolint onSave
   workspace.onDidSaveTextDocument(() => {
     commands.executeCommand('protolint.lint');
   });
