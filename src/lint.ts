@@ -47,10 +47,9 @@ const lint = (outputChannel: OutputChannel): void => {
           const message = currentValue.split('] ')[1];
 
           if (!isNaN(lineNumber) && message) {
-            return [
-              ...previousValue,
-              new Diagnostic(document.lineAt(lineNumber - 1).range, message, DiagnosticSeverity.Error)
-            ];
+            const diagnostic = new Diagnostic(document.lineAt(lineNumber - 1).range, message, DiagnosticSeverity.Error);
+            diagnostic.source = 'protolint';
+            return [...previousValue, diagnostic];
           }
 
           return previousValue;

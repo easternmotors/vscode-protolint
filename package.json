@@ -1,7 +1,7 @@
 {
   "name": "vscode-protolint-rcginc",
-  "displayName": "Proto Lint (RCG Inc.)",
-  "version": "1.1.0",
+  "displayName": "Protolint (Lite)",
+  "version": "1.1.1",
   "repository": {
     "url": "https://github.com/easternmotors/vscode-protolint"
   },
@@ -23,13 +23,13 @@
         "protolint.configPath": {
           "scope": "resource",
           "type": "string",
-          "default": "",
+          "default": "./.protolint.yaml",
           "description": "Path to a protolint configuration file relative to the VSCode workspace folder"
         },
         "protolint.path": {
           "scope": "resource",
           "type": "string",
-          "default": "",
+          "default": "protolint",
           "description": "Path to a protolint executable file relative to the VSCode workspace folder"
         }
       }
